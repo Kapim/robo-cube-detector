@@ -73,7 +73,7 @@ Dostupne metody:
 python student_task.py
 ```
 
-Soubor `student_task.py` ukazuje jednoduche trideni kostek podle barvy do krabic.
+Soubor `student_task.py` ukazuje jednoduche detekovaní kostek.
 
 ## Poznamky ke kalibraci
 
