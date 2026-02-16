@@ -146,11 +146,16 @@ def project_point(h_img_to_marker, pt_xy):
 
 
 def marker_to_robot(xm, ym, marker_origin_robot_x, marker_origin_robot_y, marker_to_robot_yaw_deg):
+    # Zakladni mapovani marker -> robot pro yaw=0:
+    # robot X dopredu, robot Y doleva, marker je pred robotem bez natoceni.
+    x_base = ym
+    y_base = -xm
+
     yaw = math.radians(marker_to_robot_yaw_deg)
     c = math.cos(yaw)
     s = math.sin(yaw)
-    xr = c * xm - s * ym + marker_origin_robot_x
-    yr = s * xm + c * ym + marker_origin_robot_y
+    xr = c * x_base - s * y_base + marker_origin_robot_x
+    yr = s * x_base + c * y_base + marker_origin_robot_y
     return xr, yr
 
 
@@ -329,7 +334,7 @@ def parse_args():
         "--marker-to-robot-yaw-deg",
         type=float,
         default=0.0,
-        help="Rotace marker->robot kolem Z (stupne)",
+        help="Dalsi rotace marker->robot kolem Z [deg] po mapovani X dopredu, Y doleva",
     )
     parser.add_argument(
         "--size-min-scale",

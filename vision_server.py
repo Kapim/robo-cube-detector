@@ -59,7 +59,12 @@ def parse_args():
     parser.add_argument("--aruco-dict", type=str, default="DICT_4X4_50", help="ArUco slovnik")
     parser.add_argument("--marker-origin-robot-x", type=float, default=0.0, help="X markeru v robot frame [cm]")
     parser.add_argument("--marker-origin-robot-y", type=float, default=0.0, help="Y markeru v robot frame [cm]")
-    parser.add_argument("--marker-to-robot-yaw-deg", type=float, default=0.0, help="Rotace marker->robot [deg]")
+    parser.add_argument(
+        "--marker-to-robot-yaw-deg",
+        type=float,
+        default=0.0,
+        help="Dalsi rotace marker->robot [deg] po mapovani X dopredu, Y doleva",
+    )
 
     parser.add_argument("--size-min-scale", type=float, default=0.65, help="Spodni tolerance velikosti")
     parser.add_argument("--size-max-scale", type=float, default=1.80, help="Horni tolerance velikosti")

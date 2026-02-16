@@ -29,8 +29,8 @@ python vision_server.py \
   --marker-id 23 \
   --marker-size-cm 5.0 \
   --marker-origin-robot-x 12.3 \
-  --marker-origin-robot-y -4.8 \
-  --marker-to-robot-yaw-deg 90 \
+  --marker-origin-robot-y 0.0 \
+  --marker-to-robot-yaw-deg 0 \
   --size-max-scale 1.80
 ```
 
@@ -80,6 +80,7 @@ Soubor `student_task.py` ukazuje jednoduche detekovaní kostek.
 Doporuceny postup:
 1. Vytiskni marker a dej ho na stul do stale pozice.
 2. Zmer jednou transformaci marker -> robot (X, Y, yaw).
+   Pokud je marker primo pred robotem bez natoceni, pouzij `--marker-to-robot-yaw-deg 0`.
 3. Spust `vision_server.py`.
 4. Stiskni `m` (nebo zavolej `POST /calibrate_marker`).
 
